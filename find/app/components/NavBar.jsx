@@ -2,7 +2,7 @@ import Button from "./Button";
 
 export default function NavBar() {
   return (
-    <nav className="px-7 py-3 flex items-center justify-between ">
+    <nav className="px-8 mx-14 py-2 flex items-center justify-between ">
       <div>
         <h1 className="capitalize font-bold text-2xl dark:text-white">
           myRome
