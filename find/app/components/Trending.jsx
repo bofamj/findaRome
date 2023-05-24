@@ -70,7 +70,7 @@ export default function Trending() {
         <div className="relative w-[100%] h-[200px]">
           {" "}
           <Image
-            src="https://media.tacdn.com/media/attractions-splice-spp-674x446/0b/01/a3/55.jpg"
+            src="https://img.veenaworld.com/wp-content/uploads/2022/08/A-Travel-Guide-to-the-Maldives-Things-to-Do-Places-to-Explore-and-the-Best-Season-to-Visit-scaled-e1663098468473.jpg"
             alt="img"
             /* width={500}
             height={600}
@@ -80,7 +80,7 @@ export default function Trending() {
             style={{ objectFit: "cover" }}
           />
           <div className="absolute top-4 left-4 text-white uppercase text-lg font-bold">
-            <h1>cairo</h1>
+            <h1>maldives</h1>
           </div>
         </div>
       </div>

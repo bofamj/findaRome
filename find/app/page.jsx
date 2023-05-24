@@ -2,6 +2,7 @@ import Image from "next/image";
 import NavBar from "./components/NavBar";
 import Header from "./components/Header";
 import Trending from "./components/Trending";
+import PropertyType from "./components/PropertyType";
 
 export default function Home() {
   return (
@@ -9,6 +10,7 @@ export default function Home() {
       <NavBar />
       <Header />
       <Trending />
+      <PropertyType />
     </main>
   );
 }
