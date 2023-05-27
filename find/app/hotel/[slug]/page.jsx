@@ -1,3 +1,5 @@
+import Reserve from "@/app/components/Reserve";
+import Reviews from "@/app/components/Reviews";
 import Image from "next/image";
 import React from "react";
 
@@ -8,11 +10,11 @@ export default function page() {
         <h1 className="text-2xl tracking-wide mb-3">
           Rooftop Room in a Hip, Refined House -combinable with Tulum-
         </h1>
-        <div>
-          <span className="pr-5">5.0</span>
-          <span className="pr-5">66 reviews</span>
-          <span className="pr-5">Mexico City, Ciudad de México, Mexico</span>
-        </div>
+        <Reviews
+          ret="5.0"
+          rev="66 reviews"
+          name="Mexico City, Ciudad de México, Mexico"
+        />
       </div>
       <div className="w-[100%] h-[280px] flex mt-3  items-center justify-center  relative rounded">
         <div className="w-1/2 h-[280px] flex  items-center justify-center  relative rounded-l-lg ">
@@ -63,6 +65,7 @@ export default function page() {
           </div>
         </div>
       </div>
+      <Reserve />
     </section>
   );
 }
