@@ -3,7 +3,7 @@ import React from "react";
 
 export default function Property() {
   return (
-    <div className="flex relative w-[80%]  shadow   px-5 py-5 rounded-lg text-slate-900">
+    <div className="flex mb-5 relative w-[80%]  shadow   px-5 py-5 rounded-lg text-slate-900">
       <div className="flex relative w-[40%] h-[200px]  rounded-lg">
         <Image
           src="https://static.independent.co.uk/2023/03/24/09/Best%20New%20York%20boutique%20hotels.jpg"
