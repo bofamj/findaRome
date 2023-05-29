@@ -1,5 +1,5 @@
 "use client";
-import React from "react";
+import { useState } from "react";
 import { Dropdown } from "@nextui-org/react";
 import { costemers } from "../../data/costemer";
 import ArrowLeftIcon from "@mui/icons-material/ArrowLeft";
@@ -7,6 +7,9 @@ import ArrowRightIcon from "@mui/icons-material/ArrowRight";
 import ArrowDropDownIcon from "@mui/icons-material/ArrowDropDown";
 
 export default function Gusts() {
+  const [isHedden, setIsHedeen] = useState(true);
+  const contentClassname = isHedden ? "max-h-0 " : "max-h-60";
+
   return (
     <div className="my-2 flex flex-col  border  rounded-lg">
       <div className="py-3 px-4 flex items-center justify-between  rounded-lg">
@@ -14,9 +17,14 @@ export default function Gusts() {
           <h5>GUESTS</h5>
           <p>guest 1</p>
         </div>
-        <ArrowDropDownIcon />
+        <ArrowDropDownIcon
+          className="text-2xl cursor-pointer"
+          onClick={() => setIsHedeen(!isHedden)}
+        />
       </div>
-      <div className="py-3 px-4 hidden">
+      <div
+        className={`py-1 px-4 transition-all duration-700 ease-in-out overflow-hidden ${contentClassname}`}
+      >
         {costemers.map((costemer) => {
           return (
             <div className="flex mb-3 items-center justify-between ">
@@ -25,9 +33,9 @@ export default function Gusts() {
                 <p>{costemer.label}</p>
               </div>
               <div>
-                <ArrowLeftIcon />
+                <ArrowLeftIcon className="text-2xl cursor-pointer" />
                 {costemer.value}
-                <ArrowRightIcon />
+                <ArrowRightIcon className="text-2xl cursor-pointer" />
               </div>
             </div>
           );
