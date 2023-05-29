@@ -1,3 +1,4 @@
+import Gusts from "./Gusts";
 import Picker from "./Picker";
 import Reviews from "./Reviews";
 
@@ -11,6 +12,9 @@ export default function Reserve() {
       <div className="mt-5 m-auto">
         <Picker />
       </div>
+      <>
+        <Gusts />
+      </>
     </section>
   );
 }
