@@ -11,7 +11,7 @@ export default function Gusts() {
   const contentClassname = isHedden ? "max-h-0 " : "max-h-60";
 
   return (
-    <div className="my-2 flex flex-col  border  rounded-lg">
+    <div className="my-2 flex flex-col  border  rounded-lg absolute top-0 left-0  bg-white ">
       <div className="py-3 px-4 flex items-center justify-between  rounded-lg">
         <div>
           <h5>GUESTS</h5>
@@ -40,7 +40,7 @@ export default function Gusts() {
             </div>
           );
         })}
-        <p className="text-xs mt-5">
+        <p className="text-xs mt-5 pb-3">
           This place has a maximum of 2 guests, not including infants. If you're
           bringing more than 2 pets, please let your host know.
         </p>

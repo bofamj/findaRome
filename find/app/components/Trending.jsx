@@ -17,7 +17,7 @@ export default function Trending() {
             style={{ objectFit: "cover" }}
           />
           <div className="absolute top-4 left-4 text-white uppercase text-lg font-bold">
-            <h1>istanbul</h1>
+            <h1 className="text-xl">istanbul</h1>
           </div>
         </div>
         <div className="w-1/2 h-[280px] flex  items-center justify-center  relative rounded">
@@ -30,7 +30,7 @@ export default function Trending() {
             style={{ objectFit: "cover" }}
           />
           <div className="absolute top-4 left-4 text-white uppercase text-lg font-bold">
-            <h1>majorca</h1>
+            <h1 className="text-xl">majorca</h1>
           </div>
         </div>
       </div>
@@ -48,7 +48,7 @@ export default function Trending() {
             style={{ objectFit: "cover" }}
           />
           <div className="absolute top-4 left-4 text-white uppercase text-lg font-bold">
-            <h1> rome</h1>
+            <h1 className="text-xl"> rome</h1>
           </div>
         </div>
         <div className="relative w-[100%] h-[200px]">
@@ -64,7 +64,7 @@ export default function Trending() {
             style={{ objectFit: "cover" }}
           />
           <div className="absolute top-4 left-4 text-white uppercase text-lg font-bold">
-            <h1>athens</h1>
+            <h1 className="text-xl">athens</h1>
           </div>
         </div>
         <div className="relative w-[100%] h-[200px]">
@@ -80,7 +80,7 @@ export default function Trending() {
             style={{ objectFit: "cover" }}
           />
           <div className="absolute top-4 left-4 text-white uppercase text-lg font-bold">
-            <h1>maldives</h1>
+            <h1 className="text-xl">maldives</h1>
           </div>
         </div>
       </div>

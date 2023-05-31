@@ -4,7 +4,7 @@ import PropertyType from "./components/PropertyType";
 
 export default function Home() {
   return (
-    <main className=" min-h-screen  text-slate-800  bg-gray-100 dark:bg-zinc-900">
+    <main className=" min-h-screen ">
       <Header />
       <Trending />
       <PropertyType />
