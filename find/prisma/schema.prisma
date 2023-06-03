@@ -13,17 +13,17 @@ datasource db {
 
 model Hotels {
   id        Int      @id @default(autoincrement())
-  bathrooms Int
+  bathrooms Float
   bedrooms Int
   city String
   images String[]
   isSuperhost Boolean
-  lat Int
-  lng Int
+  lat Float
+  lng Float
   name String
   previewAmenities String[]
   price Int
-  rating Int
+ 
   reviewsCount Int
   type String
   createdAt DateTime @default(now())
