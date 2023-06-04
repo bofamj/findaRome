@@ -4,90 +4,83 @@ import Image from "next/image";
 import React from "react";
 import { PrismaClient } from "@prisma/client";
 const prisma = new PrismaClient();
+const fetchHotelBySlug = async (id) => {
+  const hotel = await prisma.hotels.findUnique({
+    where: {
+      id,
+    },
+  });
+  return hotel;
+};
 
-export default async function page() {
-  const data = await prisma.hotels.findMany();
+export default async function page({ params }) {
+  const hotel = await fetchHotelBySlug(Number(params.slug));
 
   return (
     <section className="px-20 mx-3 my-5 text-slate-900 dark:text-white">
       <div className="">
-        <h1 className="text-2xl tracking-wide mb-3">
-          Rooftop Room in a Hip, Refined House -combinable with Tulum-
-        </h1>
+        <h1 className="text-2xl tracking-wide mb-3">{hotel.name}</h1>
         <Reviews
-          ret="5.0"
-          rev="66 reviews"
-          name="Mexico City, Ciudad de México, Mexico"
+          ret={hotel.rating}
+          rev={`${hotel.reviewsCount} reviews`}
+          name={hotel.city}
         />
       </div>
       <div className="w-[100%] h-[280px] flex mt-3  items-center justify-center  relative rounded">
         <div className="w-1/2 h-[280px] flex  items-center justify-center  relative rounded-l-lg ">
-          <Image
-            src="https://a.travel-assets.com/findyours-php/viewfinder/images/res70/507000/507808-istanbul.jpg"
+          <img
+            src={hotel.images[0]}
             alt="img"
             fill
-            className="rounded-l-lg "
+            className="rounded-l-lg w-[100%] h-[280px]"
             style={{ objectFit: "cover" }}
           />
         </div>
         <div className="w-1/2 h-[280px] grid grid-cols-2 gap-2 ml-2 items-center justify-center  relative rounded-r-lg">
-          <div className="w-[100%] h-[100%] flex  items-center justify-center  relative rounded">
-            <Image
-              src="https://a.travel-assets.com/findyours-php/viewfinder/images/res70/507000/507808-istanbul.jpg"
+          <div className="w-[100%] h-1/2 flex  items-center justify-center  relative rounded">
+            <img
+              src={hotel.images[1]}
               alt="img"
               fill
-              className=" "
+              className="w-[100%] h-[135px]"
               style={{ objectFit: "cover" }}
             />
           </div>
           <div className="w-[100%] h-[100%] flex  items-center justify-center  relative rounded-r-lg">
-            <Image
-              src="https://a.travel-assets.com/findyours-php/viewfinder/images/res70/507000/507808-istanbul.jpg"
+            <img
+              src={hotel.images[2]}
               alt="img"
               fill
-              className="rounded-r-lg"
+              className="w-[100%] h-[135px] rounded-r-lg"
               style={{ objectFit: "cover" }}
             />
           </div>
           <div className="w-[100%] h-[100%] flex  items-center justify-center  relative ">
-            <Image
-              src="https://a.travel-assets.com/findyours-php/viewfinder/images/res70/507000/507808-istanbul.jpg"
+            <img
+              src={hotel.images[3]}
               alt="img"
               fill
-              className=""
+              className="w-[100%] h-[135px]"
               style={{ objectFit: "cover" }}
             />
           </div>
           <div className="w-[100%] h-[100%] flex  items-center justify-center  relative rounded-r-lg ">
-            <Image
-              src="https://a.travel-assets.com/findyours-php/viewfinder/images/res70/507000/507808-istanbul.jpg"
+            <img
+              src={hotel.images[4]}
               alt="img"
               fill
-              className=" rounded-r-lg"
+              className="w-[100%] h-[135px] rounded-r-lg"
               style={{ objectFit: "cover" }}
             />
           </div>
         </div>
       </div>
       <div className="flex mt-10">
-        <Reserve />
+        <Reserve hotel={hotel} />
         <div className="pl-20 tracking-wider leading-7">
           <p>
-            Conveniently located in the center of Istanbul, HaciBayramHotel
-            provides air-conditioned rooms, a garden, free WiFi and a shared
-            lounge. This 3-star hotel offers room service and a 24-hour front
-            desk. The property has a concierge service, a tour desk and currency
-            exchange for guests. At the hotel, each room comes with a desk, a
-            flat-screen TV, a private bathroom, bed linen and towels. Every room
-            is equipped with a safety deposit box, while selected rooms are
-            equipped with a balcony and others also offer garden views. Guest
-            rooms will provide guests with a closet and an electric tea pot. A
-            buffet, Full English/Irish or American breakfast is served at the
-            property. HaciBayramHotel has a terrace. Popular points of interest
-            near the accommodation include Blue Mosque, Hagia Sophia and
-            Basilica Cistern. The nearest airport is Istanbul Sabiha Gokcen
-            International, 24 miles from HaciBayramHotel, and the property
-            offers a paid airport shuttle service.
+            {hotel.previewAmenities}
+            {hotel.name}
           </p>
         </div>
       </div>

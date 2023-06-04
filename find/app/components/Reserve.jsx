@@ -3,12 +3,12 @@ import Gusts from "./Gusts";
 import Picker from "./Picker";
 import Reviews from "./Reviews";
 
-export default function Reserve() {
+export default function Reserve({ hotel }) {
   return (
     <section className="w-[20rem] h-[30rem] shadow-md rounded-lg py-5 px-3 text-slate-900 relative ">
       <div className="flex justify-between ">
-        <h6 className="mr-3"> $50 $45 night</h6>
-        <Reviews ret="5.0" rev="66 reviews" />
+        <h6 className="mr-3"> ${hotel.price} night</h6>
+        <Reviews ret={hotel.rating} rev={`${hotel.reviewsCount} reviews`} />
       </div>
       <div className="mt-5 m-auto">
         <Picker />
@@ -19,7 +19,7 @@ export default function Reserve() {
       <button className="py-2 px-[7.5rem] rounded text-white   bg-pink-800">
         Reserve
       </button>
-      <Cost />
+      <Cost hotel={hotel} />
     </section>
   );
 }

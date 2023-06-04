@@ -1,10 +1,10 @@
 import React from "react";
 
-export default function Cost() {
+export default function Cost({ hotel }) {
   return (
     <div className="text-slate-900">
       <div className="mt-3 flex items-center justify-between">
-        <p>$50 x 16 nights</p>
+        <p>${hotel.price} x 16 nights</p>
         <p>$800</p>
       </div>
       <div className="mt-3 flex items-center justify-between">
