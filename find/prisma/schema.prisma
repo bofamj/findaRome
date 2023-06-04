@@ -23,7 +23,7 @@ model Hotels {
   name String
   previewAmenities String[]
   price Int
- 
+ location String
   reviewsCount Int
   type String
   createdAt DateTime @default(now())
