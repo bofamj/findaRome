@@ -1,14 +1,15 @@
-import Image from "next/image";
-import { PrismaClient } from "@prisma/client";
-const prisma = new PrismaClient();
-import React from "react";
 import Link from "next/link";
+import { paginate } from "../../utils/psginat";
 
-export default async function Property() {
-  const data = await prisma.hotels.findMany();
+export default function Property({ data, pageSize, currentPage, location }) {
+  const paginatePosts = paginate(data, currentPage, pageSize);
+
   return (
     <>
-      {data.map((d) => (
+      <h1 className="text-2xl text-slate-900 dark:text-white mb-3 capitalize ">
+        location {location ? location : ""}
+      </h1>
+      {paginatePosts.map((d) => (
         <Link href={`/hotel/${d.id}`} className="no-underline">
           <div className="flex mb-5 relative w-[80%]  shadow   px-5 py-5 rounded-lg text-slate-900">
             <div className="flex relative w-[40%] h-[200px]  rounded-lg">
