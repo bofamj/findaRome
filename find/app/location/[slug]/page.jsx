@@ -4,7 +4,6 @@ import { PrismaClient } from "@prisma/client";
 const prisma = new PrismaClient();
 
 export default async function Hotels({ params }) {
-  console.log("🚀 ~ file: page.jsx:7 ~ Hotels ~ params:", params);
   const data = await prisma.hotels.findMany({
     where: {
       location: params.slug,
