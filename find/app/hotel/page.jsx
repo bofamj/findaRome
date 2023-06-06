@@ -5,7 +5,7 @@ const prisma = new PrismaClient();
 
 export default async function Hotels() {
   const data = await prisma.hotels.findMany();
-  //const [currentPage, setCurrentPage] = useState(1);
+
   const pageSize = 10;
 
   return (
