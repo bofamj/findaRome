@@ -3,6 +3,7 @@ import Reviews from "@/app/components/Reviews";
 import Image from "next/image";
 import React from "react";
 import { PrismaClient } from "@prisma/client";
+import HotelMap from "../../components/HotelMap";
 const prisma = new PrismaClient();
 const fetchHotelBySlug = async (id) => {
   const hotel = await prisma.hotels.findUnique({
@@ -77,11 +78,12 @@ export default async function page({ params }) {
       </div>
       <div className="flex mt-10">
         <Reserve hotel={hotel} />
-        <div className="pl-20 tracking-wider leading-7">
+        <div className="pl-20 w-2/3 rounded-lg overflow-hidden tracking-wider leading-7">
           <p>
             {hotel.previewAmenities}
             {hotel.name}
           </p>
+          <HotelMap late={hotel.lat} lone={hotel.lng} />
         </div>
       </div>
     </section>
