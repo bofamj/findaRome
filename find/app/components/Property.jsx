@@ -11,7 +11,7 @@ export default function Property({ data, pageSize, location }) {
   return (
     <>
       <h1 className="text-2xl text-slate-900 dark:text-white mb-3 capitalize ">
-        location {location ? location : ""}
+        {location ? `location ${location}` : ""}
       </h1>
       {paginatePosts.map((d) => (
         <Link href={`/hotel/${d.id}`} className="no-underline">
