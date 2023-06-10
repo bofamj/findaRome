@@ -16,11 +16,13 @@ export default function Paginations({ items, pageSize }) {
   const pages = _.range(1, pageCount + 1);
 
   return (
-    <Pagination
-      count={pages.length}
-      variant="outlined"
-      shape="rounded"
-      onChange={handleChange}
-    />
+    <>
+      <Pagination
+        count={pages.length}
+        variant="outlined"
+        shape="rounded"
+        onChange={handleChange}
+      />
+    </>
   );
 }

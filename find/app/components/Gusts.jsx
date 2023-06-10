@@ -6,7 +6,7 @@ import ArrowLeftIcon from "@mui/icons-material/ArrowLeft";
 import ArrowRightIcon from "@mui/icons-material/ArrowRight";
 import ArrowDropDownIcon from "@mui/icons-material/ArrowDropDown";
 
-export default function Gusts() {
+export default function Gusts({ bedrooms }) {
   const [isHedden, setIsHedeen] = useState(true);
 
   const contentClassname = isHedden ? "max-h-0 " : "max-h-60";

@@ -1,24 +1,29 @@
 "use client";
-import { useContext, useEffect } from "react";
+import { useContext } from "react";
 import DataContext from "../context/DataContext";
 
 export default function Cost({ hotel }) {
-  const { bookingDays } = useContext(DataContext);
+  const { bookingDays, setBookingDays } = useContext(DataContext);
+  const tatalCost = hotel.price * bookingDays;
+  const discond = () => {
+    if (bookingDays >= 6) {
+      return 80;
+    } else {
+      return 0;
+    }
+  };
 
-  useEffect(() => {
-    bookingDays;
-  }, [bookingDays]);
   return (
     <div className="text-slate-900">
       <div className="mt-3 flex items-center justify-between">
         <p>
           ${hotel.price} x {bookingDays} nights
         </p>
-        <p>$800</p>
+        <p>${tatalCost}</p>
       </div>
       <div className="mt-3 flex items-center justify-between">
         <p>Weekly stay discount</p>
-        <p>-$80</p>
+        <p>-${discond()}</p>
       </div>
       <div className="mt-3 flex items-center justify-between">
         <p>Cleaning fee </p>

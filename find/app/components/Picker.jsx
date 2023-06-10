@@ -5,17 +5,15 @@ import { DateRangePicker } from "rsuite";
 import "rsuite/dist/rsuite-rtl.css";
 
 export default function Picker() {
-  const { setBookingDays } = useContext(DataContext);
+  const { setBookingDays, bookingDays } = useContext(DataContext);
+
   const [value, setValue] = useState([new Date(), new Date()]);
   const from = value[0].toLocaleDateString("en-CA");
   const to = value[1].toLocaleDateString("en-CA");
   const diffInMs = new Date(to) - new Date(from);
   //*how meny days
   const diffInDays = diffInMs / (1000 * 60 * 60 * 24);
-
-  useEffect(() => {
-    setBookingDays(diffInDays);
-  }, [setValue]);
+  setBookingDays(diffInDays);
 
   return (
     <DateRangePicker

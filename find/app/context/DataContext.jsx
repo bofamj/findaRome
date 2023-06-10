@@ -6,7 +6,7 @@ const DataContext = createContext({});
 
 export const DataProvider = ({ children }) => {
   const [currentPage, setCurrentPage] = useState(1);
-  const [bookingDays, setBookingDays] = useState();
+  const [bookingDays, setBookingDays] = useState(1);
 
   return (
     <DataContext.Provider
