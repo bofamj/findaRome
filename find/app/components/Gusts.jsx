@@ -1,5 +1,5 @@
 "use client";
-import { useState } from "react";
+import { useState, useContext } from "react";
 import { Dropdown } from "@nextui-org/react";
 import { costemers } from "../../data/costemer";
 import ArrowLeftIcon from "@mui/icons-material/ArrowLeft";
@@ -8,6 +8,7 @@ import ArrowDropDownIcon from "@mui/icons-material/ArrowDropDown";
 
 export default function Gusts() {
   const [isHedden, setIsHedeen] = useState(true);
+
   const contentClassname = isHedden ? "max-h-0 " : "max-h-60";
 
   return (

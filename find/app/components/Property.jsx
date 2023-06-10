@@ -26,7 +26,7 @@ export default function Property({ data, pageSize, location }) {
               />
             </div>
             <div className="w-[70%] px-5 py-5">
-              <h1 className="text-lg">{d.name}</h1>
+              <h1 className="text-xl">{d.name}</h1>
 
               <p className="pt-5">
                 {d.previewAmenities}

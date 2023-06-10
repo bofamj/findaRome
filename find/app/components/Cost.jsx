@@ -1,10 +1,19 @@
-import React from "react";
+"use client";
+import { useContext, useEffect } from "react";
+import DataContext from "../context/DataContext";
 
 export default function Cost({ hotel }) {
+  const { bookingDays } = useContext(DataContext);
+
+  useEffect(() => {
+    bookingDays;
+  }, [bookingDays]);
   return (
     <div className="text-slate-900">
       <div className="mt-3 flex items-center justify-between">
-        <p>${hotel.price} x 16 nights</p>
+        <p>
+          ${hotel.price} x {bookingDays} nights
+        </p>
         <p>$800</p>
       </div>
       <div className="mt-3 flex items-center justify-between">

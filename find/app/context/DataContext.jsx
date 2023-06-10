@@ -6,12 +6,15 @@ const DataContext = createContext({});
 
 export const DataProvider = ({ children }) => {
   const [currentPage, setCurrentPage] = useState(1);
+  const [bookingDays, setBookingDays] = useState();
 
   return (
     <DataContext.Provider
       value={{
         currentPage,
         setCurrentPage,
+        bookingDays,
+        setBookingDays,
       }}
     >
       {children}
