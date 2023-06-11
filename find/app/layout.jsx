@@ -1,5 +1,6 @@
 import Footer from "./components/Footer ";
 import NavBar from "./components/NavBar";
+import Provider from "./components/Provider";
 import "./globals.css";
 import { Inter } from "next/font/google";
 import { DataProvider } from "./context/DataContext";
@@ -15,13 +16,15 @@ export default function RootLayout({ children }) {
   return (
     <html lang="en" className="bg-gray-100">
       <body className={inter.className}>
-        <DataProvider>
-          <div className=" text-slate-800  bg-gray-100 dark:bg-zinc-900">
-            <NavBar />
-            {children}
-            <Footer />
-          </div>
-        </DataProvider>
+        <Provider>
+          <DataProvider>
+            <div className=" text-slate-800  bg-gray-100 dark:bg-zinc-900">
+              <NavBar />
+              {children}
+              <Footer />
+            </div>
+          </DataProvider>
+        </Provider>
       </body>
     </html>
   );

@@ -4,7 +4,6 @@ import Picker from "./Picker";
 import Reviews from "./Reviews";
 
 export default function Reserve({ hotel }) {
-  console.log("🚀 ~ file: Reserve.jsx:7 ~ Reserve ~ hotel:", hotel);
   return (
     <section className="w-[20rem] h-[30rem] shadow-md rounded-lg py-5 px-3 text-slate-900 relative ">
       <div className="flex justify-between ">
