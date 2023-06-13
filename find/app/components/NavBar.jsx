@@ -5,7 +5,7 @@ import { useSession, signIn, signOut } from "next-auth/react";
 
 export default function NavBar() {
   const { data: session } = useSession();
-  console.log("🚀 ~ file: NavBar.jsx:8 ~ NavBar ~ session:", session);
+
   return (
     <nav className="px-8 mx-14 py-2 flex items-center justify-between ">
       <div>
