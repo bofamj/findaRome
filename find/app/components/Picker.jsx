@@ -5,7 +5,7 @@ import { DateRangePicker } from "rsuite";
 import "rsuite/dist/rsuite-rtl.css";
 
 export default function Picker() {
-  const { setBookingDays, bookingDays } = useContext(DataContext);
+  const { setBookingDays } = useContext(DataContext);
 
   const [value, setValue] = useState([new Date(), new Date()]);
   const from = value[0].toLocaleDateString("en-CA");

@@ -1,18 +1,15 @@
 "use client";
+import { useState, useContext, useEffect } from "react";
 import axios from "axios";
 import Cost from "./Cost";
 import Gusts from "./Gusts";
 import Picker from "./Picker";
 import Reviews from "./Reviews";
-//import usePayment from "../../hooks/usePayment";
-import Link from "next/link";
-import { useState, useContext } from "react";
 import DataContext from "../context/DataContext";
 
 export default function Reserve({ hotel }) {
-  console.log("🚀 ~ file: Reserve.jsx:13 ~ Reserve ~ hotel:", hotel);
-  const { bookingDays, setBookingDays } = useContext(DataContext);
-  const tatalCost = hotel.price * bookingDays;
+  const { bookingDays } = useContext(DataContext);
+  let tatalCost;
   const [reservation, setReservation] = useState([
     {
       tatalCost,
@@ -21,11 +18,28 @@ export default function Reserve({ hotel }) {
     },
   ]);
 
+  useEffect(() => {
+    if (bookingDays > 0) {
+      tatalCost = hotel.price * bookingDays;
+      setReservation([
+        {
+          tatalCost,
+          name: hotel.name,
+          image: hotel.images[0],
+        },
+      ]);
+    }
+  }, [bookingDays]);
+
+  console.log(
+    "🚀 ~ file: Reserve.jsx:27 ~ Reserve ~ reservation:",
+    reservation
+  );
+
   const createCheckoutSession = async () => {
     axios
       .post("http://localhost:3000/api/checkout_sessions", { reservation })
       .then((res) => {
-        console.log(res);
         window.location = res.data.sessionURL;
       })
       .catch((err) => console.log(err));

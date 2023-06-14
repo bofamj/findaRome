@@ -1,7 +1,11 @@
+"use client";
 import Link from "next/link";
-import React from "react";
+import { useContext } from "react";
+import DataContext from "../context/DataContext";
 
 const Success = () => {
+  const { reservations } = useContext(DataContext);
+  console.log("🚀 ~ file: page.jsx:7 ~ Success ~ reservations:", reservations);
   return (
     <div className="h-screen grid place-items-center">
       <div className="text-center">

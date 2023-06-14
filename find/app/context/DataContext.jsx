@@ -8,6 +8,7 @@ export const DataProvider = ({ children }) => {
   const [currentPage, setCurrentPage] = useState(1);
   const [bookingDays, setBookingDays] = useState(1);
   const [items, setItems] = useState("my-items");
+  const [data, setData] = useState([]);
 
   return (
     <DataContext.Provider
@@ -18,6 +19,8 @@ export const DataProvider = ({ children }) => {
         setBookingDays,
         items,
         setItems,
+        data,
+        setData,
       }}
     >
       {children}

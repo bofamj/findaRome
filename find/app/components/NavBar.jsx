@@ -1,5 +1,5 @@
 "use client";
-import Button from "./Button";
+
 import Link from "next/link";
 import { useSession, signIn, signOut } from "next-auth/react";
 
@@ -36,5 +36,3 @@ export default function NavBar() {
     </nav>
   );
 }
-/*<Button type="sign in" />
-        <Button type="register" /> */
