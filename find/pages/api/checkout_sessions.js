@@ -3,10 +3,6 @@ const stripe = require("stripe")(process.env.STRIPE_SECRET_KEY);
 export default async function handler(req, res) {
   if (req.method === "POST") {
     const reservation = req.body.reservation;
-    console.log(
-      "🚀 ~ file: checKout_sessions.js:6 ~ handler ~ reservation:",
-      reservation
-    );
 
     const transformedItems = reservation.map((reservation) => ({
       price_data: {
@@ -28,10 +24,7 @@ export default async function handler(req, res) {
         success_url: `${req.headers.origin}/success`,
         cancel_url: `${req.headers.origin}/`,
       });
-      console.log(
-        "🚀 ~ file: checKout_sessions.js:27 ~ handler ~ session:",
-        session
-      );
+
       res.json({ sessionURL: session.url, session: session });
     } catch (err) {
       console.log(err);

@@ -1,4 +1,5 @@
 import React from "react";
+import SerchBar from "./SerchBar";
 
 export default function Header() {
   return (
@@ -10,6 +11,7 @@ export default function Header() {
         <p className="text-xl  capitalize text-white dark:text-slate-900 ">
           Search deals on hotels, homes, and much more...
         </p>
+        <SerchBar />
       </div>
     </main>
   );

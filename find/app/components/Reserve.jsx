@@ -8,7 +8,8 @@ import Reviews from "./Reviews";
 import DataContext from "../context/DataContext";
 
 export default function Reserve({ hotel }) {
-  const { bookingDays } = useContext(DataContext);
+  const { bookingDays, setData, data } = useContext(DataContext);
+
   let tatalCost;
   const [reservation, setReservation] = useState([
     {
@@ -28,13 +29,15 @@ export default function Reserve({ hotel }) {
           image: hotel.images[0],
         },
       ]);
+      setData([
+        {
+          tatalCost,
+          name: hotel.name,
+          image: hotel.images[0],
+        },
+      ]);
     }
   }, [bookingDays]);
-
-  console.log(
-    "🚀 ~ file: Reserve.jsx:27 ~ Reserve ~ reservation:",
-    reservation
-  );
 
   const createCheckoutSession = async () => {
     axios
