@@ -5,6 +5,7 @@ import { useContext } from "react";
 import DataContext from "../context/DataContext";
 
 export default function Property({ data, pageSize, location }) {
+  console.log("🚀 ~ file: Property.jsx:8 ~ Property ~ data:", data);
   const { currentPage } = useContext(DataContext);
   const paginatePosts = paginate(data, currentPage, pageSize);
 

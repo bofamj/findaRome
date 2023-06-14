@@ -1,10 +1,14 @@
 "use client";
 import { useState } from "react";
 import { useRouter } from "next/navigation";
+import useSerch from "../../hooks/useSerch";
 import React from "react";
 
 const SerchBar = () => {
+  const { loading, error, findCity } = useSerch();
+
   const [location, setLocation] = useState("");
+
   const router = useRouter();
 
   return (
@@ -20,9 +24,7 @@ const SerchBar = () => {
         className="rounded bg-blue-600 px-3 md:px-9 py-2 text-white  dark:bg-red-900"
         onClick={() => {
           if (location === "") return;
-          router.push(`/search?city=${location}`);
-
-          setLocation("");
+          router.push(`/serchLocation?city=${location}`);
         }}
       >
         Let's go

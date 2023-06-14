@@ -9,7 +9,7 @@ export default async function Hotels({ params }) {
       location: params.slug,
     },
   });
-  //const [currentPage, setCurrentPage] = useState(1);
+
   const pageSize = 10;
 
   return (
