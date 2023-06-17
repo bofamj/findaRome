@@ -6,14 +6,18 @@ export default function useSerch() {
   const [error, setError] = useState(false);
   const [loading, setLoading] = useState(false);
   const [city, setCity] = useState([]);
-  console.log("🚀 ~ file: useSerch.jsx:9 ~ useSerch ~ city:", city);
 
   const findCity = async (location) => {
+    const { searchParams } = location;
+    console.log(
+      "🚀 ~ file: useSerch.jsx:13 ~ findCity ~ cityLocation:",
+      searchParams.city
+    );
     const options = {
       method: "GET",
       url: "https://airbnb13.p.rapidapi.com/search-location",
       params: {
-        location: { location },
+        location: searchParams.city,
         checkin: "2023-09-16",
         checkout: "2023-09-17",
         adults: "1",

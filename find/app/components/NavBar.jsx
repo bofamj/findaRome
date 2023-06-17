@@ -7,10 +7,10 @@ export default function NavBar() {
   const { data: session } = useSession();
 
   return (
-    <nav className="px-8 mx-14 py-2 flex items-center justify-between ">
+    <nav className="px-0 mx-5 py-2 flex items-center justify-between md:px-8 md:mx-14 ">
       <div>
         <Link href="/" className="hover:no-underline">
-          <h1 className="capitalize cursor-pointer no-underline  font-bold text-2xl dark:text-white">
+          <h1 className="capitalize cursor-pointer no-underline  font-bold text-xl md:text-2xl dark:text-white">
             myRome
           </h1>
         </Link>

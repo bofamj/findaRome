@@ -4,10 +4,10 @@ import React from "react";
 export default function PropertyType() {
   return (
     <section className="flex flex-col mt-10 m-auto  py-8  w-[90%]">
-      <h1 className="text-4xl capitalize ml-6 text-slate-900 dark:text-white">
+      <h1 className="text-2xl capitalize ml-6 text-slate-900 dark:text-white md:text-4xl">
         Browse by property type
       </h1>
-      <div className="grid grid-cols-4 gap-3 items-center w-[95%] m-auto mt-10">
+      <div className="grid grid-cols-1 gap-3 items-center w-[95%] m-auto mt-10 md:grid-cols-4">
         <div>
           <div className="flex relative w-[100%] h-[200px] bg-red-500 rounded-lg">
             {" "}
