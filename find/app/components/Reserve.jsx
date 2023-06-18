@@ -49,19 +49,19 @@ export default function Reserve({ hotel }) {
   };
 
   return (
-    <section className="w-[20rem] h-[30rem] shadow-md rounded-lg py-5 px-3 text-slate-900 relative ">
+    <section className="w-[100%] h-[30rem] shadow-md rounded-lg py-5 px-3 text-slate-900 relative md:w-[20rem]">
       <div className="flex justify-between ">
         <h6 className="mr-3"> ${hotel.price} night</h6>
         <Reviews ret={hotel.rating} rev={`${hotel.reviewsCount} reviews`} />
       </div>
-      <div className="mt-5 m-auto">
+      <div className="mt-5 m-auto w-[100%]">
         <Picker />
       </div>
       <div className="relative mb-4 h-20 bg-white">
         <Gusts bedrooms={hotel.bedrooms} />
       </div>
       <button
-        className="py-2 px-[7.5rem] rounded text-white   bg-pink-800"
+        className="py-2 px-[42.5%] rounded text-white   bg-pink-800 md:px-[7.5rem]"
         onClick={createCheckoutSession}
       >
         Reserve

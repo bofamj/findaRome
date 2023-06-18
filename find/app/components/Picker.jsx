@@ -17,7 +17,7 @@ export default function Picker() {
 
   return (
     <DateRangePicker
-      className="py-3 px-3 w-[300px] purple"
+      className="py-3 px-3 flex w-[300px] purple"
       appearance="default"
       format="yyyy-MM-dd"
       placeholder="Select Date Range"

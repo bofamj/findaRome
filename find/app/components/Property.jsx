@@ -34,14 +34,14 @@ export default function Property({ data, pageSize, location }) {
                 {d.name}
               </p>
             </div>
-            <div className="flex  md:w-[20%] w-[100%] pt-5 dm:flex-col ">
-              <div className="flex mb-3 mr-2 ">
-                <h3 className="mr-2">Very Good</h3>
+            <div className="flex  md:w-[20%] w-[100%] pt-5 dm:flex-col md:h-[10%]">
+              <div className="flex mb-3 mr-2 w-[50%] h-[10%]">
+                <h3 className="mr-2 tex-xl">Very Good</h3>
                 <p className=" bg-blue-900 p-1 rounded-t-md rounded-br-md text-white">
                   {d.rating ? d.rating : 0}
                 </p>
               </div>
-              <button className="px-3 py-2 border  rounded-md bg-blue-600 text-white dark:bg-dark-bg capitalize">
+              <button className="px-3 text-sm py-2 border  rounded-md bg-blue-600 text-white dark:bg-dark-bg capitalize">
                 show prices
               </button>
             </div>
