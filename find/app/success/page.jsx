@@ -5,7 +5,6 @@ import DataContext from "../context/DataContext";
 
 const Success = () => {
   const { data } = useContext(DataContext);
-  console.log("🚀 ~ file: page.jsx:8 ~ Success ~ data:", data);
 
   return (
     <div className="h-screen grid place-items-center">

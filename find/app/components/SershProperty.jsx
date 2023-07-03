@@ -1,12 +1,16 @@
 "use client";
 import Link from "next/link";
 import { paginate } from "../../utils/psginat";
-import { useContext } from "react";
+import { useContext, useEffect } from "react";
 import DataContext from "../context/DataContext";
 
-export default function Property({ data, pageSize, location }) {
-  const { currentPage } = useContext(DataContext);
+export default function SershProperty({ data, pageSize, location }) {
+  const { currentPage, setSerchData } = useContext(DataContext);
   const paginatePosts = paginate(data, currentPage, pageSize);
+
+  useEffect(() => {
+    setSerchData(paginatePosts);
+  }, []);
 
   return (
     <>

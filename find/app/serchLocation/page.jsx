@@ -3,6 +3,7 @@ import Property from "../components/Property";
 import Paginations from "../components/Paginations";
 import useSerch from "@/hooks/useSerch";
 import { useEffect } from "react";
+import SershProperty from "../components/SershProperty";
 
 export default async function Hotels(searchParams) {
   const location = searchParams;
@@ -16,7 +17,7 @@ export default async function Hotels(searchParams) {
 
   return (
     <main className=" min-h-screen px-24 mt-20  text-slate-800  bg-gray-100 dark:bg-zinc-900">
-      <Property
+      <SershProperty
         data={city}
         pageSize={pageSize}
         location={location.searchParams.city}

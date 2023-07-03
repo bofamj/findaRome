@@ -1,26 +1,14 @@
+"use client";
 import Reserve from "@/app/components/Reserve";
 import Reviews from "@/app/components/Reviews";
-import Image from "next/image";
-import React from "react";
-import { PrismaClient } from "@prisma/client";
 import HotelMap from "../../components/HotelMap";
-const prisma = new PrismaClient();
-const fetchHotelBySlug = async (id) => {
-  const hotel = await prisma.hotels.findUnique({
-    where: {
-      id,
-    },
-  });
-  return hotel;
-};
+import { useContext } from "react";
+import DataContext from "../../context/DataContext";
 
-export default async function page({ params }) {
-  console.log("🚀 ~ file: page.jsx:18 ~ page ~ params:", params);
-  const hotel = await fetchHotelBySlug(Number(params.slug));
-
+export default function page({ params }) {
   return (
     <section className="px-2 mx-3 my-5 text-slate-900 dark:text-white md:px-20">
-      <div className="">
+      {/* <div className="">
         <h1 className="text-xl tracking-wide mb-3 md:text-2xl">{hotel.name}</h1>
         <Reviews
           ret={hotel.rating}
@@ -86,47 +74,7 @@ export default async function page({ params }) {
           </p>
           <HotelMap late={hotel.lat} lone={hotel.lng} />
         </div>
-      </div>
+      </div> */}
     </section>
   );
 }
-/* const getHotalels = async function () {
-    const url =
-      "https://airbnb13.p.rapidapi.com/search-location?location=istanbul&checkin=2023-09-16&checkout=2023-09-17&adults=1&children=0&infants=0&pets=0&page=1&currency=USD";
-    const options = {
-      method: "GET",
-      headers: {
-        "X-RapidAPI-Key": "3cace6a128msh3b60c4110624461p16e8f0jsna4e59d6640d6",
-        "X-RapidAPI-Host": "airbnb13.p.rapidapi.com",
-      },
-    };
-
-    try {
-      let datas = [];
-      const response = await fetch(url, options);
-      const result = await response.json();
-
-      result.results.map(async (data) => {
-        await prisma.hotels.createMany({
-          data: {
-            bathrooms: data.bathrooms,
-            bedrooms: data.bedrooms,
-            city: data.city,
-            images: data.images,
-            isSuperhost: data.isSuperhost,
-            lat: data.lat,
-            lng: data.lng,
-            name: data.name,
-            previewAmenities: data.previewAmenities,
-            price: data.price.rate,
-           
-            reviewsCount: data.reviewsCount,
-            type: data.type,
-          },
-        });
-      });
-    } catch (error) {
-      console.error(error);
-    }
-  };
-  getHotalels();*/
