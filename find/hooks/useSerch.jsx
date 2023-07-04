@@ -4,8 +4,8 @@ import axios from "axios";
 import { useState } from "react";
 
 export default function useSerch() {
-  const [error, setError] = useState(false);
-  const [loading, setLoading] = useState(false);
+  /* const [error, setError] = useState(false);
+  const [loading, setLoading] = useState(false); */
   const [city, setCity] = useState([]);
 
   const findCity = async (location) => {
@@ -16,10 +16,13 @@ export default function useSerch() {
         location: searchParams.searchParams.city,
       },
     };
+
     const res = await axios.get("http://localhost:3000/api/findHotals", option);
     const data = res.data.cityLocation;
-    if (data) {
-      setCity(data);
+
+    if (data.length !== 0) {
+      console.log("🚀 ~ file: useSerch.jsx:24 ~ findCity ~ data:", data);
+      return setCity(data);
     } else {
       const options = {
         method: "GET",
@@ -37,13 +40,17 @@ export default function useSerch() {
         },
         headers: {
           "X-RapidAPI-Key":
-            "3cace6a128msh3b60c4110624461p16e8f0jsna4e59d6640d6",
+            "ca3adf7303msh68102725e1a8cf7p120fbfjsncc910e881f42",
           "X-RapidAPI-Host": "airbnb13.p.rapidapi.com",
         },
       };
 
       try {
         const response = await axios.request(options);
+        console.log(
+          "🚀 ~ file: useSerch.jsx:50 ~ findCity ~ response:",
+          response
+        );
 
         setCity(response.data.results);
         const cityData = axios.post("http://localhost:3000/api/hotels", {
@@ -55,9 +62,5 @@ export default function useSerch() {
       }
     }
   };
-
-  return { loading, error, findCity, city };
+  return { findCity, city };
 }
-
-//3cace6a128msh3b60c4110624461p16e8f0jsna4e59d6640d6
-//0ab4f2de68msh5db84fd793386d1p15c04ajsnf14c84fd4c7d
