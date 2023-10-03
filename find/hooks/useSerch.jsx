@@ -16,16 +16,11 @@ export default function useSerch() {
         location: searchParams.searchParams.city,
       },
     };
-    console.log(
-      "🚀 ~ file: useSerch.jsx:19 ~ findCity ~ option.params.searchParams.searchParams.city:",
-      searchParams.searchParams.city
-    );
 
     const res = await axios.get("http://localhost:3000/api/findHotals", option);
     const data = res.data.cityLocation;
 
     if (data.length !== 0) {
-      console.log("🚀 ~ file: useSerch.jsx:24 ~ findCity ~ data:", data);
       return setCity(data);
     } else {
       const options = {
@@ -51,10 +46,7 @@ export default function useSerch() {
 
       try {
         const response = await axios.request(options);
-        console.log(
-          "🚀 ~ file: useSerch.jsx:50 ~ findCity ~ response:",
-          response
-        );
+
         const info = response.data.results;
 
         setCity(response.data.results);
@@ -62,10 +54,6 @@ export default function useSerch() {
           city: info,
           location: searchParams.searchParams.city,
         });
-        console.log(
-          "🚀 ~ file: useSerch.jsx:61 ~ findCity ~ cityData:",
-          cityData
-        );
       } catch (error) {
         console.error(error);
       }

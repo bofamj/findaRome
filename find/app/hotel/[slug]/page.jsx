@@ -15,7 +15,6 @@ const fetchHotelBySlug = async (id) => {
 };
 
 export default async function page({ params }) {
-  console.log("🚀 ~ file: page.jsx:18 ~ page ~ params:", params);
   const hotel = await fetchHotelBySlug(Number(params.slug));
 
   return (
