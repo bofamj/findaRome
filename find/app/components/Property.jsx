@@ -14,8 +14,8 @@ export default function Property({ data, pageSize, location }) {
         {location ? `location ${location}` : ""}
       </h1>
       {paginatePosts.map((d) => (
-        <Link href={`/hotel/${d.id}`} className="no-underline">
-          <div className="flex flex-col mb-5 relative w-[100%]  shadow   px-5 py-5 rounded-lg text-slate-900 md:flex-row md:w-[80%]">
+        <Link href={`/hotel/${d.id}`} className="no-underline ">
+          <div className="flex flex-col mb-5 relative w-[100%]  shadow   px-5 py-5 rounded-lg text-slate-900 md:flex-row md:w-[90%]">
             <div className="flex relative  h-[200px]  rounded-lg w-[100%] md:w-[40%] ">
               <img
                 src={d.images[0]}
@@ -25,7 +25,7 @@ export default function Property({ data, pageSize, location }) {
                 style={{ objectFit: "cover" }}
               />
             </div>
-            <div className="w-[100%] md:w-[70%] px-5 py-5">
+            <div className="w-[100%] md:w-[60%] px-5 py-5">
               <h1 className="text-xl">{d.name}</h1>
 
               <p className="pt-5">
@@ -36,13 +36,17 @@ export default function Property({ data, pageSize, location }) {
             <div className="flex  md:w-[20%] w-[100%] pt-5 dm:flex-col md:h-[10%]">
               <div className="flex mb-3 mr-2 w-[50%] h-[10%]">
                 <h3 className="mr-2 tex-xl">Very Good</h3>
-                <p className=" bg-blue-900 p-1 rounded-t-md rounded-br-md text-white">
+                <p className=" bg-blue-900 p-1 text-center d-flex pt-0 max-h-6 rounded-t-md rounded-br-md text-white">
                   {d.rating ? d.rating : 0}
                 </p>
               </div>
-              <button className="px-3 text-sm py-2 border  rounded-md bg-blue-600 text-white dark:bg-dark-bg capitalize">
+              <Link
+                href={`/hotel/${d.id}`}
+                n
+                className="px-3 text-sm py-2 border  rounded-md bg-blue-600 text-white dark:bg-dark-bg capitalize"
+              >
                 show prices
-              </button>
+              </Link>
             </div>
           </div>
         </Link>
