@@ -10,7 +10,7 @@ export default async function Hotels() {
 
   return (
     <main className=" min-h-screen px-10 mt-20  text-slate-800  bg-gray-100 dark:bg-zinc-900 md:px-24">
-      <Prope rty data={data} pageSize={pageSize} />
+      <Property rty data={data} pageSize={pageSize} />
       <Paginations items={data.length} pageSize={pageSize} />
     </main>
   );
