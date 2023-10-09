@@ -41,7 +41,7 @@ export default function Reserve({ hotel }) {
 
   const createCheckoutSession = async () => {
     axios
-      .post("http://localhost:3000/api/checkout_sessions", { reservation })
+      .post("/api/checkout_sessions", { reservation })
       .then((res) => {
         window.location = res.data.sessionURL;
       })
